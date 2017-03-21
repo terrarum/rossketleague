@@ -10,9 +10,12 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "dist": "npm run build"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
     "firebase": "^3.7.2",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0"
