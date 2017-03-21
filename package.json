@@ -11,7 +11,7 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "dist": "npm run build"
+    "dist": "npm install && npm run build"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
