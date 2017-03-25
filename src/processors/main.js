@@ -36,11 +36,6 @@ const addPlayer = function addPlayer(playerName, isGameWinner) {
   }
 };
 
-// Determine the X of Best of X.
-// const seriesType = function seriesType(results) {
-//
-// };
-
 const zeroPad = function zeroPad(m) {
   return m < 10 ? `0${m}` : m;
 };
@@ -93,6 +88,9 @@ const processSeries = function processGame(series) {
   seriesModel.winner = sw1 > sw2 ? player1 : player2;
   seriesModel.winner = sw2 > sw1 ? player2 : player1;
   seriesModel.loser = seriesModel.winner === player1 ? player2 : player1;
+
+  // Determine the type of game by the number of games the winner won.
+  seriesModel.type = (seriesWins[seriesModel.winner] * 2) - 1;
 
   // Add player to players.
   // Compile list of players.
