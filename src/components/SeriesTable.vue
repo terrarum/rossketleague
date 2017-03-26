@@ -63,6 +63,10 @@
     }
   }
 
+  h2 {
+    text-align: center;
+  }
+
   tr.activeSeries {
     background-color: #eee;
   }

@@ -45,6 +45,10 @@
   $spacing: 20px;
   $spacing-sm: 10px;
 
+  h2 {
+    text-align: center;
+  }
+
   .gamedetails {
     flex-basis: 50%;
     background-color: #eee;

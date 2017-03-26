@@ -42,7 +42,7 @@
   }
 
   .player__wins {
-    font-family: 'Righteous', cursive;
+    font-family: Righteous, sans-serif;
     font-size: 40px;
     color: #000;
     font-weight: 700;
