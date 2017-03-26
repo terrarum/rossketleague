@@ -14,9 +14,11 @@ export default {
 <style>
   * {
     box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
   }
 
   .title {
+    margin-top: 40px;
     text-align: center;
     font-family: sans-serif;
     text-transform: uppercase;

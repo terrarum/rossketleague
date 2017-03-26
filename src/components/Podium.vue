@@ -29,9 +29,9 @@
     justify-content: space-around;
     align-items: flex-end;
 
-    width: 600px;
     border-bottom: 5px solid black;
     margin: 60px auto;
+    flex-basis: 50%;
   }
 
   .player {
@@ -42,7 +42,7 @@
   }
 
   .player__wins {
-    font-family: Righteous;
+    font-family: 'Righteous', cursive;
     font-size: 40px;
     color: #000;
     font-weight: 700;

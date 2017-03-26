@@ -41,6 +41,7 @@ const zeroPad = function zeroPad(m) {
 
 const processSeries = function processGame(series, index) {
   const seriesModel = new SeriesModel();
+  seriesModel.id = index;
 
   seriesModel.note = series.Note;
   const date = new Date(series.Date);
@@ -77,7 +78,6 @@ const processSeries = function processGame(series, index) {
     gameModel.isOvertime = isOvertime;
 
     seriesModel.games.push(gameModel);
-    seriesModel.id = index;
   });
 
   // Calculate winner of series.
@@ -105,8 +105,10 @@ const process = function process(serieses) {
     processSeries(series, index);
   });
 
-  // Sort players.
+  // Sort players by wins.
   tournamentData.players.sort((a, b) => a.wins < b.wins);
+  // Reverse series order.
+  tournamentData.series.reverse();
 
   return tournamentData;
 };

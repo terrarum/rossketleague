@@ -6,7 +6,7 @@
       <Podium :players="players"></Podium>
 
       <div class="leaguedetails">
-        <SeriesTable :serieses="serieses" v-on:activeSeriesId="setActiveSeriesId"></SeriesTable>
+        <SeriesTable :serieses="serieses" :activeSeriesId="activeSeriesId" v-on:activeSeriesId="setActiveSeriesId"></SeriesTable>
         <GameDetails v-if="activeSeriesId !== null" :activeSeries="activeSeries"></GameDetails>
       </div>
     </div>
@@ -53,6 +53,7 @@
         const tournament = processor.process(games);
         this.players = tournament.players;
         this.serieses = tournament.series;
+        this.activeSeriesId = tournament.series.length - 1;
         this.loading = false;
       });
     },
@@ -66,7 +67,13 @@
 </script>
 
 <style scoped>
+  .stats {
+    margin: auto;
+    width: 600px;
+  }
+
   .leaguedetails {
     display: flex;
+    padding: 10px;
   }
 </style>
