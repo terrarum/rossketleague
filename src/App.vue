@@ -14,7 +14,7 @@ export default {
 <style>
   * {
     box-sizing: border-box;
-    font-family: 'Inconsolata', monospace;
+    font-family: monospace;
   }
 
   .title {
