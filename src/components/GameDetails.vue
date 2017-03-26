@@ -2,8 +2,8 @@
   <div class="gamedetails">
     <h2>Game Details</h2>
     <div class="details">
-      <div class="details__date">
-        {{ activeSeries.date }}
+      <div class="details__meta">
+        {{ activeSeries.date }}<span class="meta-spacer"></span>Best of {{ activeSeries.type }}
       </div>
 
       <div class="details__result">
@@ -56,7 +56,12 @@
     font-size: 14px;
   }
 
-  .details__date {
+  .details__meta {
+    text-align: center;
+    margin-bottom: $spacing;
+  }
+
+  .details__type {
     text-align: center;
     margin-bottom: $spacing;
   }
@@ -105,6 +110,10 @@
     padding-bottom: 2px;
   }
 
+  .meta-spacer::before {
+    content: ' - ';
+  }
+
   .spacer {
     padding: 6px;
   }
@@ -121,6 +130,11 @@
     .gamedetails {
       flex-basis: 60%;
     }
+
+    .meta-spacer::before {
+      content: ' ';
+      display: block;
+     }
 
     .spacer {
       padding: 1px;
