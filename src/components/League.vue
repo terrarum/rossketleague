@@ -36,8 +36,16 @@
     },
     computed: {
       activeSeries() {
+        let activeSeries = null;
         if (this.activeSeriesId !== null) {
-          return this.serieses[this.activeSeriesId];
+          this.serieses.forEach((series) => {
+            if (series.id === this.activeSeriesId) {
+              activeSeries = series;
+            }
+          });
+        }
+        if (activeSeries) {
+          return activeSeries;
         }
         return false;
       },
