@@ -1,4 +1,5 @@
 export default function (
+  id = '',
   date = '',
   type = '',
   winner = '',
@@ -7,6 +8,7 @@ export default function (
   note = '',
 ) {
   return {
+    id,
     date,
     type,
     winner,

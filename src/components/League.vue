@@ -1,34 +1,23 @@
 <template>
   <div class="league">
-
     <Loading v-if="loading"></Loading>
 
-    <div v-for="player in players">
-      {{ player.name }} - {{ player.wins }}
+    <div class="stats" v-if="!loading">
+      <Podium :players="players"></Podium>
+
+      <div class="leaguedetails">
+        <SeriesTable :serieses="serieses" v-on:activeSeriesId="setActiveSeriesId"></SeriesTable>
+        <GameDetails :activeSeries="activeSeries"></GameDetails>
+      </div>
     </div>
-
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Winner</th>
-        <th>Loser</th>
-        <th>Type</th>
-        <th>Notes</th>
-      </tr>
-      <tr v-for="series in serieses">
-        <td>{{ series.date }}</td>
-        <td>{{ series.winner }}</td>
-        <td>{{ series.loser }}</td>
-        <td>Best of {{ series.type }}</td>
-        <td>{{ series.note }}</td>
-      </tr>
-    </table>
-
   </div>
 </template>
 
 <script>
   import Loading from '@/components/Loading';
+  import Podium from '@/components/Podium';
+  import SeriesTable from '@/components/SeriesTable';
+  import GameDetails from '@/components/GameDetails';
 
   import firebase from '@/firebase';
   import processor from '@/processors/main';
@@ -42,7 +31,21 @@
         loading: true,
         players: [],
         serieses: [],
+        activeSeriesId: null,
       };
+    },
+    computed: {
+      activeSeries() {
+        if (this.activeSeriesId !== null) {
+          return this.serieses[this.activeSeriesId];
+        }
+        return false;
+      },
+    },
+    methods: {
+      setActiveSeriesId(seriesId) {
+        this.activeSeriesId = seriesId;
+      },
     },
     mounted() {
       firebaseInstance.database().ref('games').once('value').then((snapshot) => {
@@ -55,11 +58,15 @@
     },
     components: {
       Loading,
+      Podium,
+      SeriesTable,
+      GameDetails,
     },
   };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .leaguedetails {
+    display: flex;
+  }
 </style>

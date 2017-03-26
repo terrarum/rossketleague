@@ -9,16 +9,9 @@
 <script>
   export default {
     name: 'Loading',
-    data() {
-      return {
-        players: [],
-        serieses: [],
-      };
-    },
   };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .loading {
     height: 400px;

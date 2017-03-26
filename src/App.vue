@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1 class="title">The Rossket League</h1>
     <router-view></router-view>
   </div>
 </template>
@@ -11,5 +12,13 @@ export default {
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
 
+  .title {
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+  }
 </style>

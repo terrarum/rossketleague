@@ -2,7 +2,6 @@ import TournamentModel from '@/models/TournamentModel';
 import PlayerModel from '@/models/PlayerModel';
 import SeriesModel from '@/models/SeriesModel';
 import GameModel from '@/models/GameModel';
-import ScoreModel from '@/models/ScoreModel';
 
 const tournamentData = new TournamentModel();
 
@@ -40,7 +39,7 @@ const zeroPad = function zeroPad(m) {
   return m < 10 ? `0${m}` : m;
 };
 
-const processSeries = function processGame(series) {
+const processSeries = function processGame(series, index) {
   const seriesModel = new SeriesModel();
 
   seriesModel.note = series.Note;
@@ -72,14 +71,13 @@ const processSeries = function processGame(series) {
     const isOvertime = resultValues[2] === 'OT';
     seriesWins[winner] += 1;
     gameModel.winner = winner;
+    gameModel.winnerScore = score[0];
     gameModel.loser = loser;
+    gameModel.loserScore = score[1];
     gameModel.isOvertime = isOvertime;
 
-    // Set each player's score.
-    gameModel.scores.push(new ScoreModel(winner, score[0]));
-    gameModel.scores.push(new ScoreModel(loser, score[1]));
-
     seriesModel.games.push(gameModel);
+    seriesModel.id = index;
   });
 
   // Calculate winner of series.
@@ -102,12 +100,14 @@ const processSeries = function processGame(series) {
 
 // Begin processing the games.
 const process = function process(serieses) {
-  Object.values(serieses).forEach((series) => {
+  Object.values(serieses).forEach((series, index) => {
     // Process games.
-    processSeries(series);
+    processSeries(series, index);
   });
 
-  console.log(tournamentData);
+  // Sort players.
+  tournamentData.players.sort((a, b) => a.wins < b.wins);
+
   return tournamentData;
 };
 

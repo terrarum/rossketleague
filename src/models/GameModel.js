@@ -1,13 +1,15 @@
 export default function (
   winner = '',
+  winnerScore = '',
   loser = '',
+  loserScore = '',
   isOvertime = 'false',
-  scores = [],
 ) {
   return {
     winner,
+    winnerScore,
     loser,
+    loserScore,
     isOvertime,
-    scores,
   };
 }
