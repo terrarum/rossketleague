@@ -14,10 +14,10 @@
       </div>
 
       <div class="details__games-title">
-        Games
+        GAMES
       </div>
-      <div class="details__games" v-for="game in activeSeries.games">
-        <div class="details__game">
+      <div class="details__games">
+        <div class="details__game" v-for="game in activeSeries.games">
           <div class="details__game__winner">{{ game.winner }}</div>
           <div class="details__game__score">{{ game.winnerScore }} - {{ game.loserScore }}</div>
           <div class="details__game__loser">{{ game.loser }} <span v-if="game.isOvertime">(OT)</span></div>
@@ -41,21 +41,26 @@
 </script>
 
 <style scoped lang="scss">
+
+  $spacing: 20px;
+  $spacing-sm: 10px;
+
   .gamedetails {
     flex-basis: 50%;
     background-color: #eee;
     padding: 0 10px;
+    font-size: 14px;
   }
 
   .details__date {
-    padding: 5px 0;
     text-align: center;
+    margin-bottom: $spacing;
   }
 
   .details__result {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 5px;
+    margin-bottom: $spacing;
   }
 
   .details__result-item {
@@ -64,14 +69,20 @@
 
     &--title {
       font-weight: 700;
-      margin: 4px 0;
+      margin-bottom: $spacing-sm;
+      font-size: 16px;
     }
   }
 
   .details__games-title {
     text-align: center;
-    margin-bottom: 5px;
     font-weight: 700;
+    font-size: 16px;
+    margin-bottom: $spacing-sm;
+  }
+
+  .details__games {
+    margin-bottom: $spacing;
   }
 
   .details__game {
@@ -80,19 +91,21 @@
 
   .details__game__winner {
     text-align: right;
-    flex-basis: 40%;
+    flex-basis: 35%;
   }
 
   .details__game__score {
     text-align: center;
-    flex-basis: 20%;
+    flex-basis: 30%;
+    font-size: 16px;
+    padding-bottom: 2px;
   }
 
   .details__game__loser {
-    flex-basis: 40%;
+    flex-basis: 35%;
   }
 
   .details_note {
-    margin-top: 10px;
+    font-size: 12px;
   }
 </style>
