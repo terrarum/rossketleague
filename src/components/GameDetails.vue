@@ -1,6 +1,7 @@
 <template>
   <div class="gamedetails">
     <div class="winner">
+      {{ activeSeries.date }} <br>
       Winner: {{ activeSeries.winner }} <br>
       Loser: {{ activeSeries.loser }}
       <div class="games" v-for="game in activeSeries.games">

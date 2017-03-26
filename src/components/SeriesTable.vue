@@ -2,17 +2,16 @@
   <div class="seriestable">
     <table>
       <tr>
-        <th>Date</th>
+        <th>Game</th>
         <th>Winner</th>
         <th>Loser</th>
         <th>Type</th>
       </tr>
-      <tr v-for="series in serieses" v-bind:key="series.id">
-        <td>{{ series.date }}</td>
+      <tr v-for="series in serieses" v-bind:key="series.id" v-on:mouseover="showDetails(series.id)">
+        <td>{{ series.id + 1 }}</td>
         <td>{{ series.winner }}</td>
         <td>{{ series.loser }}</td>
         <td>Best of {{ series.type }}</td>
-        <td><button v-on:click="showDetails(series.id)">Details</button></td>
       </tr>
     </table>
   </div>
