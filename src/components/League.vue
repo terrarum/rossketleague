@@ -7,7 +7,7 @@
 
       <div class="leaguedetails">
         <SeriesTable :serieses="serieses" v-on:activeSeriesId="setActiveSeriesId"></SeriesTable>
-        <GameDetails :activeSeries="activeSeries"></GameDetails>
+        <GameDetails v-if="activeSeriesId !== null" :activeSeries="activeSeries"></GameDetails>
       </div>
     </div>
   </div>
