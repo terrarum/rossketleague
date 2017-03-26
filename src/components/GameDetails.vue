@@ -19,7 +19,7 @@
       <div class="details__games">
         <div class="details__game" v-for="game in activeSeries.games">
           <div class="details__game__winner">{{ game.winner }}</div>
-          <div class="details__game__score">{{ game.winnerScore }} - {{ game.loserScore }}</div>
+          <div class="details__game__score">{{ game.winnerScore }}<span class="spacer">-</span>{{ game.loserScore }}</div>
           <div class="details__game__loser">{{ game.loser }} <span v-if="game.isOvertime">(OT)</span></div>
         </div>
       </div>
@@ -105,11 +105,25 @@
     padding-bottom: 2px;
   }
 
+  .spacer {
+    padding: 6px;
+  }
+
   .details__game__loser {
     flex-basis: 35%;
   }
 
   .details_note {
     font-size: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .gamedetails {
+      flex-basis: 60%;
+    }
+
+    .spacer {
+      padding: 1px;
+    }
   }
 </style>

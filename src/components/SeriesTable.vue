@@ -5,8 +5,8 @@
       <tr>
         <th>Series</th>
         <th>Winner</th>
-        <th>Loser</th>
-        <th>Type</th>
+        <th class="hide-on-mobile">Loser</th>
+        <th class="hide-on-mobile">Type</th>
       </tr>
       <tr
         v-for="series in serieses"
@@ -15,8 +15,8 @@
         :class="{activeSeries: isActiveSeries(series)}">
         <td>{{ series.id + 1 }}</td>
         <td>{{ series.winner }}</td>
-        <td>{{ series.loser }}</td>
-        <td>Best of {{ series.type }}</td>
+        <td class="hide-on-mobile">{{ series.loser }}</td>
+        <td class="hide-on-mobile">Best of {{ series.type }}</td>
       </tr>
     </table>
   </div>
@@ -69,5 +69,14 @@
 
   tr.activeSeries {
     background-color: #eee;
+  }
+
+  @media (max-width: 600px) {
+    .seriestable {
+      flex-basis: 40%;
+    }
+    .hide-on-mobile {
+      display: none;
+    }
   }
 </style>

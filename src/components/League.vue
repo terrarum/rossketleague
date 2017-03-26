@@ -69,7 +69,8 @@
 <style scoped>
   .stats {
     margin: auto;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
   }
 
   .leaguedetails {
