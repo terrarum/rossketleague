@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="details_note">
+      <div class="details_note" v-if="activeSeries.note">
         Note: {{ activeSeries.note }}
       </div>
     </div>
